@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한신대 백과사전</title>
+    <link href="index.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;500;600;&display=swap" rel="stylesheet">
+    <script src = "menu.js"></script>
+    </head>
+<body>
+    <div class="all">
+        
+    <div class="weather">
+        <span class="">
+            <span style="font-size: 50px; font-weight: bold;">오늘의 식단표</span>
+            <br>
+            <span class="eat1">정식:</span><span class="eat1_1">
+            </span>
+            <hr>
+            <span class="eat2">일식:</span><span class="eat2_2">
+            </span> 
+            <hr>
+            <span class="eat3">석식:</span><span class="eat3_3">
+            </span>
+        </span>
+        <span class="eat">
+            <span style="font-size: 50px; font-weight: bold;">한신대 날씨</span>
+        <br>
+        <span>현재기온:</span><span class="temp"></span> <br>
+        <span>최고기온:</span><span class="max"></span> <br>
+        <span>최저기온:</span><span class="min"></span> <br>
+        <span>습도:</span><span class="clouds"></span> 
+    </span>
+    <br>
+    
+    </div>
+    <div class="logo">
+        <a href="index.html">
+            <span><img src="image/logo.jpeg" width="100px" alt=""></span>
+            <span class="title">HOME</span>
+        </a>
+    </div>
+    <div class="head">
+        <h1>한신대 도우미</h1>
+		<p>학교에 다니며 생긴 궁금증을 해소해 보세요</p>
+    </div>
+    <!-- head end -->
+    <div class="main">
+
+        <ul class="icon">
+            <li class="icons1">
+                <a href="content1.html">
+                <div class="icon_img">
+                    <img src="image/지도아이콘.png" alt="">
+                </div>
+                <div class="contents1_bold">
+                    지도
+                </div>
+            </a>
+            </li>
+            <li class="icons2">
+                <a href="content2.html">
+                    <div class="icon_img">
+                        <img src="image/식당아이콘.png" alt="">
+                    </div>
+                    <div class="contents1_bold">
+                        식당
+                    </div>
+                </a>
+            </li>
+            <li class="icons3">
+                <a href="content3.html">
+                    <div class="icon_img">
+                        <img src="image/식단표아이콘.png" alt="">
+                    </div>
+                    <div class="contents1_bold">
+                        식단표
+                    </div>
+                </a>
+            </li>
+            <li class="icons4">
+                <a href="content4.html">
+                    <div class="icon_img">
+                        <img src="image/버스아이콘.png" alt="">
+                    </div>
+                    <div class="contents1_bold">
+                        버스 정보
+                    </div>
+                </a>
+            </li>
+            <li class="icons5">
+                <a href="content5.html">
+                    <div class="icon_img">
+                        <img src="image/학교포털아이콘.png" alt="">
+                    </div>
+                    <div class="contents1_bold">
+                        학교 포털 및 전화번호
+                    </div>
+                </a>
+            </li>
+            <li class="icons6">
+                <a href="content6.html">
+                    <div class="icon_img">
+                        <img src="image/꿀팁아이콘.png" alt="">
+                    </div>
+                    <div class="contents1_bold">
+                        각종 꿀팁
+                    </div>
+                </a>
+            </li>
+            
+            <li></li>
+        </ul>
+    </div>
+</div>
+    <script>
+          function weather(){
+               fetch(`https://api.openweathermap.org/data/2.5/weather?lat=37.192773150689135&lon=127.02751033525821&appid=87c2a0db9525243baf59b3218bb1b0de&units=metric`)
+        .then(res=>res.json()).then(json=>
+            {
+            document.querySelector('.temp').innerText=json.main.temp
+            document.querySelector('.max').innerText=json.main.temp_max
+            document.querySelector('.min').innerText=json.main.temp_min
+            document.querySelector('.clouds').innerText=json.main.humidity
+         })}
+        weather() 
+
+        document.querySelector('.eat1_1').innerText=jeongsik1
+        document.querySelector('.eat2_2').innerText=ilsik1
+        document.querySelector('.eat3_3').innerText=seogsik1
+
+    </script>
+
+</body>
+</html>
